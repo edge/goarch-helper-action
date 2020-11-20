@@ -29,7 +29,7 @@ Generally GOARCH and GOOS values also correspond to arch/os inputs but check doc
 
 Because this action is stored in a private repository [it cannot be referenced](https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsuses) in the `uses` property of a step.
 
-Instead, you can simply copy-paste, like every great developer. Just drop the following files to `.github/actions/goarch-helper-action` in your project:
+Instead, you can simply copy-paste, like every great developer. Just drop the following files into `.github/actions/goarch-helper-action` in your project:
 
 - [action.yml](./action.yml)
 - [index.js](./index.js)
