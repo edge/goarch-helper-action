@@ -1,0 +1,31 @@
+name: goarch-helper-action
+description: Format os/arch inputs to useful outputs
+
+inputs:
+  arch:
+    description: Target architecture
+    required: true
+  os:
+    description: Target OS
+    default: linux
+    required: false
+
+outputs:
+  GOARCH:
+    description: Target architecture for Go compiler
+  GOARM:
+    description: Target ARM variant for Go compiler
+  GOOS:
+    description: Target OS for Go compiler
+  alpine_platform:
+    description: Alpine platform specifier
+  artifact_suffix:
+    description: Arbitrary filename-safe string
+  docker_buildx_platform:
+    description: Docker Buildx platform specifier
+  docker_go_buildargs:
+    description: Build arguments to pass to Go builder Docker image
+
+runs:
+  using: node12
+  main: index.js
