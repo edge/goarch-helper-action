@@ -21,6 +21,8 @@ outputs:
     description: Alpine platform specifier
   artifact_suffix:
     description: Arbitrary filename-safe string
+  deb_arch:
+    description: Architecture flag for a Debian package
   docker_buildx_platform:
     description: Docker Buildx platform specifier
   docker_go_buildargs:

@@ -20,6 +20,13 @@ const output = {
     return output.GOARCH
   },
   artifact_suffix: () => `${input.os}-${safe(input.arch)}`,
+  deb_arch: () => {
+    if (output.GOARCH === 'arm') {
+      if (output.GOARM === '7' || output.GOARM === '8') return 'armhf'
+      return 'armel'
+    }
+    return output.GOARCH
+  },
   docker_buildx_platform: () => `${input.os}/${input.arch}`,
   docker_go_buildargs: () => [
     `-e GOARCH=${output.GOARCH}`,

@@ -22,6 +22,7 @@ Generally GOARCH and GOOS values also correspond to arch/os inputs but check doc
 | GOOS | Target OS for Go compiler | `linux` |
 | alpine_platform | Alpine platform specifier | `arm32v7` (i.e. [arm32v7/alpine](https://hub.docker.com/r/arm32v7/alpine/))
 | artifact_suffix | Arbitrary filename-safe string | `linux-arm-v7` |
+| deb_arch | Debian architecture flag | `armhf` |
 | docker_buildx_platform | Docker [Buildx](https://github.com/docker/buildx) platform specifier | `linux/arm/v7` |
 | docker_go_buildargs | Build arguments to pass to Go builder Docker image | `-e GOARCH=arm -e GOARM=7 -e GOOS=linux` |
 
