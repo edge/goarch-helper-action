@@ -26,30 +26,23 @@ Generally GOARCH and GOOS values also correspond to arch/os inputs but check doc
 | docker_buildx_platform | Docker [Buildx](https://github.com/docker/buildx) platform specifier | `linux/arm/v7` |
 | docker_go_buildargs | Build arguments to pass to Go builder Docker image | `-e GOARCH=arm -e GOARM=7 -e GOOS=linux` |
 
-## Usage in projects
+These outputs and their formats are used in Edge CI. If you need different outputs, please feel free to fork this project or roll your own.
 
-Because this action is stored in a private repository [it cannot be referenced](https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsuses) in the `uses` property of a step.
-
-Instead, you can simply copy-paste, like every great developer. Just drop the following files into `.github/actions/goarch-helper-action` in your project:
-
-- [action.yml](./action.yml)
-- [index.js](./index.js)
-
-You can then use it like so:
+## Example usage
 
 ```yaml
 jobs:
   myjob:
     steps:
       - name: Facilitate multi-arch build
-        id: xarch
-        uses: ./.github/actions/goarch-helper-action
+        id: goarch
+        uses: edge/goarch-helper-action@v1
         with:
           os: ${{ matrix.os }}
           arch: ${{ matrix.arch }}
 
-      - name: Print buildargs for some reason
-        run: echo ${{ steps.xarch.outputs.docker_go_buildargs }}
+      - name: Print buildargs for whatever reason
+        run: echo ${{ steps.goarch.outputs.docker_go_buildargs }}
 ```
 
 ## Development
